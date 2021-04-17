@@ -1,6 +1,10 @@
 {
   "name": "web-server",
   "version": "1.0.0",
+  "engines": {
+    "npm": "7.x",
+    "node": "14.x"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
