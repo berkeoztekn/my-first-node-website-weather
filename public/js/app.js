@@ -2,18 +2,18 @@ console.log('Client side javascript was loaded!')
 
 
 const fetchWeather = (address, callback) => {
-    fetch(`http://localhost:3000/weather?address=${address}`).then((response) => {
+    fetch(`/weather?address=${address}`).then((response) => {
         response.json().then((data) => {
             if (data.error) {
-               callback(data.error, undefined)
+                callback(data.error, undefined)
             } else {
-               callback(undefined, data)
+                callback(undefined, data)
             }
         })
     })
 }
 
-const messageOne = document.querySelector('#message-1') 
+const messageOne = document.querySelector('#message-1')
 
 const messageTwo = document.querySelector('#message-2')
 
@@ -28,11 +28,11 @@ form.addEventListener('submit', (e) => {
 
     const input = search.value
 
-    messageOne.textContent = 'Loading...'   
+    messageOne.textContent = 'Loading...'
     messageTwo.textContent = ''
 
-    fetchWeather(input, (error, {current, location} = {}) => {
-        if(error) {
+    fetchWeather(input, (error, { current, location } = {}) => {
+        if (error) {
             messageOne.textContent = error
             messageTwo.textContent = ''
         } else {
